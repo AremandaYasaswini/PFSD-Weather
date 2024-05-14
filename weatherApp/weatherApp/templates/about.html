@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .navbar {
+            background-color: #007BFF;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 16px;
+            width: calc(100% - 40px);
+            margin: 20px;
+            position: fixed;
+            top: 0;
+            transition: all 0.3s ease;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+         .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar form {
+            display: flex;
+            align-items: center;
+        }
+        .navbar button {
+            padding: 5px 10px;
+            margin-left: 10px;
+            border: none;
+            color: white;
+            background-color: #007BFF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .navbar button:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            max-width: 800px;
+            transition: all 0.3s ease;
+        }
+        h1 {
+            color: #333;
+            padding-top: 50px;
+            font-size: 2em;
+            transition: all 0.3s ease;
+        }
+        p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .btn-container {
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div>
+    <a href="/">🏠 Home</a>
+    <a href="/weather">⛅ Weather Wizard</a>
+  </div>
+  <div>
+    <a href="/login">🔑 Login</a>
+    <a href="/signup">✍️ Register</a>
+  </div>
+</div>
+
+<div class="content">
+    <h1>📖 About Us</h1>
+    <p>🌤️ Weather Wizard: Your Personal Meteorologist”</p>
+    <p>🎯 Our project aims to bring accurate and real-time weather updates right at your fingertips. </p>
+    <p>🌍 Whether you’re planning a trip or just curious about the climate, Weather Wizard is here to guide you.</p>
+    <p>👍 With our user-friendly interface and reliable data, you can stay ahead of the weather and plan your day with confidence.</p>
+    <p>🚀 Join us on this exciting journey and let’s explore the skies together!”</p>
+    <h2>About Me</h2>
+    <p>Hi there! I'm Aremanda Yasaswini, the developer behind Weather Wizard. Connect with me on LinkedIn:</p>
+    <a href="https://www.linkedin.com/in/aremanda-yasaswini-95431a28b/" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn Logo" width="50" height="50">
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef1f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            width: 100%;
+            padding: 14px 16px;
+        }
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+        }
+        header a:hover, header a:focus {
+            background-color: #007bff;
+            color: white;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+        section.weather {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        article.current {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        article.current img {
+            width: 150px;
+            margin-right: 20px;
+        }
+        article.current .temperature {
+            font-size: 48px;
+            margin-right: 20px;
+            color: #333;
+        }
+        article.current .details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        article.current .details p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        section.forecast {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        article.day {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+        article.day h3 {
+            margin-top: 0;
+        }
+        article.day img {
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">🏠 Home</a>
+        </nav>
+    </header>
+    {% if weather %}
+        <main>
+            <section class="weather">
+                <h2>{{ weather.city }}</h2>
+                <article class="current">
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Weather Icon">
+                    <p class="temperature">{{ weather.temperature }}°C</p>
+                    <div class="details">
+                        <p><strong>Wind:</strong> {{ weather.wind }} km/h</p>
+                        <p><strong>Precipitation:</strong> {{ weather.precip }} mm</p>
+                        <p><strong>Pressure:</strong> {{ weather.pressure }} mb</p>
+                        <p><strong>Description:</strong> {{ weather.description }}</p>
+                    </div>
+                </article>
+                <section class="forecast">
+                    {% for day in weather.forecast %}
+                        <article class="day">
+                            <h3>{{ day.date }}</h3>
+                            <p>{{ day.temperature }}°C</p>
+                            <img src="http://openweathermap.org/img/wn/{{ day.icon }}@2x.png" alt="Forecast Icon">
+                        </article>
+                    {% endfor %}
+                </section>
+            </section>
+        </main>
+    {% endif %}
+</body>
+</html>
